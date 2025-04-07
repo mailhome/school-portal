@@ -1,16 +1,11 @@
+import Footer from "@/components/footer/footer";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({
+  subsets: ["latin"]
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,9 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+        className={`${inter.className} min-h-screen flex flex-col w-full antialiased`}>
+        <div className="flex flex-col items-center justify-center flex-1 bg-white dark:bg-neutral- text-black">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );
